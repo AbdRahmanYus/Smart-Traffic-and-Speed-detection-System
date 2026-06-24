@@ -104,9 +104,14 @@ Object detectors don't report a single classification-style "accuracy" — preci
 
 Built after studying two reference projects' approaches and documented limitations:
 
-- [jayy-agu/SpeedDetection](https://github.com/jayy-agu/SpeedDetection) — homography-based speed estimation
+- [jayy-agu/SpeedDetection](https://github.com/jayy-agu/SpeedDetection) — homography-based speed estimation 
 - [Nabeel-99/smart-surveillance-system](https://github.com/Nabeel-99/smart-surveillance-system) — HSV-based red-light surveillance
 - joshfatoye0011-bit
+- Rizama Victor
+- Stephen Ayuba
+- Oluwaferanmi Ayeni
+- Oshione Adogame Precious
+- Abdulquoyum Onimago
 
 ## Author
 
