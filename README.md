@@ -115,4 +115,4 @@ Built after studying two reference projects' approaches and documented limitatio
 
 ## License
 
-`License`
+`https://github.com/AbdRahmanYus/Smart-Traffic-and-Speed-detection-System/tree/main?tab=MIT-1-ov-file#`
