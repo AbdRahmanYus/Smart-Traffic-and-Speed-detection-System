@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Smart Traffic Surveillance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-title">
+      <h1>Smart traffic surveillance</h1>
+      <p class="subtitle">Vehicle speed and red-light violation monitor</p>
+    </div>
+    <span id="status-pill" class="status-pill idle">Idle</span>
+  </header>
+
+  <main>
+
+    <section class="panel" id="upload-card">
+      <div class="panel-heading-row">
+        <h2>Video</h2>
+        <span id="session-label" class="session-label" hidden></span>
+      </div>
+      <form id="upload-form">
+        <input type="file" id="video-input" accept="video/*" required>
+        <button type="submit">Process video</button>
+      </form>
+      <div id="status-line">No video processed yet.</div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="traffic-light-card">
+      <h2>Traffic light control</h2>
+      <p class="hint">Auto follows the detector. Any other choice overrides it until you set Auto again. Once a video is done processing, switching lights instantly replays the offender log for that scenario - no reprocessing needed.</p>
+
+      <div class="signal-row">
+        <div class="signal-housing">
+          <button class="lens red" data-state="red" title="Force red"><span class="lens-glass"></span></button>
+          <button class="lens amber" data-state="amber" title="Force amber"><span class="lens-glass"></span></button>
+          <button class="lens green" data-state="green" title="Force green"><span class="lens-glass"></span></button>
+        </div>
+
+        <div class="signal-readout">
+          <div class="readout-line">
+            <span class="readout-label">Mode</span>
+            <span class="readout-value" id="readout-mode">AUTO</span>
+          </div>
+          <div class="readout-line">
+            <span class="readout-label">Detected</span>
+            <span class="readout-value" id="readout-detected">&mdash;</span>
+          </div>
+          <div class="readout-line">
+            <span class="readout-label">Effective</span>
+            <span class="readout-value" id="readout-effective">&mdash;</span>
+          </div>
+        </div>
+      </div>
+
+      <button id="auto-button" class="auto-toggle active" data-state="auto">Auto - use detector</button>
+    </section>
+
+    <section class="panel accordion" id="depth-card">
+      <button class="accordion-header" type="button" aria-expanded="true" data-target="depth-body">
+        <h2>Depth view</h2>
+        <span class="chevron">&#9662;</span>
+      </button>
+      <div class="accordion-body" id="depth-body">
+        <p class="hint">Depth Anything V2 output, refreshed as the video processes.</p>
+        <div class="depth-frame" id="depth-frame">
+          <span class="depth-placeholder">Waiting for the first depth update&hellip;</span>
+          <img id="depth-image" alt="Latest depth map">
+        </div>
+      </div>
+    </section>
+
+    <section class="panel accordion" id="offenders-card">
+      <button class="accordion-header" type="button" aria-expanded="true" data-target="offenders-body-wrap">
+        <h2>Offender log</h2>
+        <span class="chevron">&#9662;</span>
+      </button>
+      <div class="accordion-body" id="offenders-body-wrap">
+        <table id="offenders-table">
+          <thead>
+            <tr>
+              <th>Snapshot</th>
+              <th>Track</th>
+              <th>Vehicle</th>
+              <th>Plate</th>
+              <th>Speed</th>
+              <th>Violation</th>
+            </tr>
+          </thead>
+          <tbody id="offenders-body">
+            <tr><td colspan="6" class="empty-row">No offenders recorded yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel" id="video-card" hidden>
+      <h2>Annotated video</h2>
+      <video id="result-video" controls></video>
+    </section>
+
+  </main>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
