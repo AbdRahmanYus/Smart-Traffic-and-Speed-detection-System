@@ -91,8 +91,6 @@ Object detectors don't report a single classification-style "accuracy" — preci
 
 ## Known Limitations
 
-- Demo speed limit (1 km/h) — must be set to the road's real legal limit before any real deployment.
-- Roboflow API key is hard-coded in the dataset-download cell — rotate it before sharing the notebook publicly.
 - Depth Anything V2 produces *relative* depth, which can drift slightly frame to frame — only an approximate metric bridge, not absolute distance.
 - RAFT runs on the full frame even though speed estimation only uses the middle ROI, wasting some GPU compute.
 - The licence-plate dataset may not fully generalise to Nigerian plate formats.
