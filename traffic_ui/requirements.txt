@@ -1,0 +1,16 @@
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart
+pydantic
+
+ultralytics
+supervision
+easyocr
+timm
+transformers
+torch
+torchvision
+opencv-python-headless
+numpy
+matplotlib
