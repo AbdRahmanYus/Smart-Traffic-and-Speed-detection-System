@@ -113,7 +113,7 @@ Built after studying two reference projects' approaches and documented limitatio
 
 ## Author
 
-**AbdulRahman Yusuf
+AbdulRahman Yusuf
 
 
 ## License
